@@ -1,0 +1,6 @@
+[
+    {
+		"caption": "Schema Hacker - Open file under cursor",
+		"command": "schema_hacker_open_file"
+	}
+]
