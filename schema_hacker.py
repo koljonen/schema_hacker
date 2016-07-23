@@ -3,21 +3,25 @@ import sublime, sublime_plugin, logging, os
 logger = logging.getLogger('schema_hacker')
 class SchemaHackerOpenFile(sublime_plugin.TextCommand):
     def run(self, edit):
-        """Open the file matching the object name under the cursor."""
+        """Open the files matching the object names under the cursors."""
         logger.debug('Schema Hacker: open file')
-        view = self.view
-        word = view.word(view.sel()[0])
-        schema = None
-        if view.substr(word.begin() - 1) == '.':
-            schema = view.substr(view.word(word.begin() - 2)).lower()
-        file_name = view.substr(word).lower() + '.sql'
-        path = [schema, None, file_name]
-        files = find_file(view.window().folders(), path)
-        if len(files) > 5:
-            print('something is wrong; too many files; aborting')
-            return
-        for f in files:
-            view.window().open_file(f)
+        for sel in self.view.sel():
+            _open_files(self.view, sel)
+
+def _open_files(view, sel):
+    """"Open .sql file matching object name under cursor"""
+    word = view.word(sel)
+    schema = None
+    if view.substr(word.begin() - 1) == '.':
+        schema = view.substr(view.word(word.begin() - 2)).lower()
+    file_name = view.substr(word).lower() + '.sql'
+    path = [schema, None, file_name]
+    files = find_file(view.window().folders(), path)
+    if len(files) > 5:
+        print('something is wrong; too many files; aborting')
+        return
+    for f in files:
+        view.window().open_file(f)
 
 def find_file(folders, path):
     """Return files matching `path`, starting in any folder in `folders`."""
