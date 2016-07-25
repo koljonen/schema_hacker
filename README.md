@@ -1,6 +1,8 @@
 # schema_hacker
 Sublime plugin for opening the .sql file corresponding to a database object by pressing F2
 
+![PRESS F2](https://github.com/koljonen/doc/blob/master/schema_hacker/PRESS%20F2.gif?raw=true)
+
 **Prerequisites**  
 This assumes you have a file structure `<project_folder>/<schema>/<type>/<objectname>.sql`, e.g. `<project_folder>/public/TABLES/foo.sql.`
 
