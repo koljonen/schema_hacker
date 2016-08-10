@@ -1,0 +1,5 @@
+{
+    "env_var": {
+    	// You may or may not need to set PGHOST here, and maybe some other variables?
+    }
+}

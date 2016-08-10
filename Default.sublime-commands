@@ -2,5 +2,9 @@
     {
 		"caption": "Schema Hacker - Open file under cursor",
 		"command": "schema_hacker_open_file"
+	},
+    {
+		"caption": "Schema Hacker - Generate insert function",
+		"command": "schema_hacker_generate_insert"
 	}
 ]
