@@ -23,6 +23,7 @@ def _open_files(view, sel):
     for f in files:
         view.window().open_file(f)
 
+
 def find_file(folders, path):
     """Return files matching `path`, starting in any folder in `folders`."""
     for name in path[:-1]:
@@ -33,6 +34,7 @@ def find_file(folders, path):
         for f in os.listdir(folder)
         if f.lower() == path[-1]
     ]
+
 
 def subdirs(path, name):
     """Return subdirs of `path.
